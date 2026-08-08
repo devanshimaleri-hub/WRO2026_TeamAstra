@@ -1,3 +1,4 @@
+
 # WRO Future Engineers 2026 - Astra
 <p align="center">
 <img src="other/Astra.jpeg" width="500"/>
@@ -7,23 +8,13 @@
 
 # 📚 Table of Contents
 
-- 📂 [Complete Documentation Structure](#-complete-documentation-structure)
 - 👥 [The Team](#-the-team)
 - 🎯 [Challenge Overview](#-challenge-overview)
 - 🤖 [Our Robot](#-our-robot)
 - 🔧 [Electronic Systems](#-electronic-systems)
-- ⚙️ [Mechanical Systems](#-mechanical-systems)
+- ⚙️ [Mechanical Systems](#mechanical-systems)
 - 💻 [Software Architecture](#-software-architecture)
 - 📹 [Performance Videos](#-performance-videos)
-
-# 📁 Complete Documentation Structure
-| 📁 Folder | 🎯 Technical Content | 📖 Detailed Documentation |
-|:---------:|:--------------------|:-------------------------:|
-| 📊 **MATLAB** | **Vision System Calibration**<br>• LAB colorspace analysis<br>• Threshold optimization<br>• Lighting condition testing | 🔗 [Explore MATLAB Documentation](MATLAB/README.md) |
-| ⚙️ **Models** | **Mechanical Engineering**<br>• 3D CAD designs<br>• Assembly instructions<br>• Gear system calculations | 🔗 [Explore 3D Models & Assembly Documentation](Models/README.md) |
-| 🔌 **Schemes** | **Electrical Systems**<br>• Wiring diagrams<br>• Power management<br>• Component schematics & datasheets | 🔗 [Explore Schematics & Wiring Documentation](Schemes/README.md) |
-| 💾 **Source Code** | **Software Algorithms**<br>• Navigation logic<br>• Sensor fusion<br>• Control systems | 🔗 [Explore Software & Algorithms Documentation](Source_Code/README.md) |
-| 👥 **Team Photos** | **Team Documentation**<br>• Member profiles<br>• Development journey<br>• Competition preparation | 🔗 [Explore Team Photos Documentation](Team_Photos/README.md) |
 
 
 # 👥 The Team
@@ -33,7 +24,7 @@
 <tr>
 <td align="center" width="33%">
 
-<img src="other/Devanshi Maleri.jpeg" width="220"><br><br>
+<img src="other/Devanshi Maleri.jpeg" width="220" height="260"><br><br>
 
 ### DEVANSHI MALERI
 **Captain**
@@ -44,7 +35,7 @@
 
 <td align="center" width="33%">
 
-<img src="other/Bhavdeep Singh.jpg" width="220"><br><br>
+<img src="other/Bhavdeep Singh.jpg" width="220" height="260"><br><br>
 
 ### BHAVDEEP SINGH
 **Hardware Engineer**
@@ -55,7 +46,7 @@
 
 <td align="center" width="33%">
 
-<img src="other/Vishesh Vij.jpeg" width="220"><br><br>
+<img src="other/Vishesh Vij.jpeg" width="220" height="260"><br><br>
 
 ### VISHESH VIJ
 **Lead Programmer**
@@ -75,6 +66,46 @@ The second challenge is the Obstacle Challenge. In this challenge, red and green
 
 Throughout the season, our goal is to develop a robot that combines reliable hardware, efficient software, and robust autonomous navigation. To prepare for possible surprise-rule modifications, our software is designed with a modular architecture that allows competition-specific parameters and behaviours to be adjusted quickly without major changes to the core navigation system.
 
+## 🚀 Open Challenge
+
+**Objective:** Complete three autonomous laps on dynamically configured tracks.
+
+| Aspect | Challenge | Our Solution |
+|:---:|:---|:---|
+| **Track Variability** | Random internal wall placements | Adaptive path planning algorithms |
+| **Navigation** | Unknown track layouts each round | Robust wall-following with corner detection |
+| **Performance** | Consistent lap times across variations | Optimized PID control and sensor fusion |
+| **Precision** | Maintain course in narrow lanes | High-accuracy steering and speed control |
+
+---
+
+## 🚧 Obstacle Challenge
+
+**Objective:** Navigate three laps with traffic sign compliance and precision parking.
+
+| Challenge Element | Requirement | Our Implementation |
+|:---:|:---|:---|
+| **Traffic Signs** | Red → Right side<br>Green → Left side | Real-time color detection with LAB colorspace |
+| **Obstacle Avoidance** | Avoid collision with obstacles | ToF sensors + computer vision fusion |
+| **Navigation** | Follow fixed track layout | Hybrid wall-following and landmark detection |
+| **Parking** | Park in designated area | Precision control with visual alignment |
+| **Performance** | Complete 3 laps reliably | Optimized speed profile and decision making |
+
+# 📁 Documentation Evaluation Framework
+
+## 📊 WRO 2026 Engineering Documentation
+
+| Scoring Area | Maximum Points | Our Documentation Coverage |
+|:---|:---:|:---|
+| **1. Mobility Management** | **4 points** | Complete mechanical design, drivetrain, motor selection, steering system, differential and assembly documentation |
+| **2. Power & Sensor Management** | **4 points** | Battery system, voltage regulation, sensor integration, wiring diagrams and component specifications |
+| **3. Obstacle Management** | **4 points** | Computer vision, ToF-based obstacle detection, traffic-sign handling and autonomous navigation algorithms |
+| **4. Team & Robot Documentation** | **4 points** | Team profiles, robot photographs, component photographs and labeled system documentation |
+| **5. Performance Documentation** | **4 points** | Challenge demonstration videos, testing results, performance analysis and improvement records |
+| **6. GitHub Utilization** | **4 points** | Structured repository, version control, source code organization, documentation and regular commits |
+| **7. Engineering & Innovation** | **4 points** | Modified RC chassis, custom N20 drivetrain integration, custom electronics architecture and engineering decisions |
+| **8. Overall Presentation** | **2 points** | Clear technical communication, organized documentation and information that enables understanding and replication |
+| **Total Documentation Score** | **30 points** | **Complete technical documentation of the Astra autonomous vehicle** |
 
 # 🤖 Our Robot
 
@@ -90,34 +121,45 @@ Our electronics are engineered to provide fast sensor feedback, stable power dis
 | **Rpi Pico** | <img src="other/pico.jpg" width="170"> | 1 | Sensor Fusion | Multi-protocol wireless MCU |
 | **AI cam IMX500** | <img src="other/camera.jpg" width="170"> | 1 | Visual Navigation | 2 MP Resolution |
 | **VL53L1X ToF** | <img src="other/tof.jpg" width="170"> | 3 | Side Detection | Up to 4 m Range, FoV |
-| **DRV8833 driver** | <img src="other/DRV8833.jpeg" width="170"> | 1 | Motor control | Dual H-Bridge 1.2 A Continuous |
-| **Feetech FS0307** | <img src="other/Micro Servo.jpeg" width="170"> | 1 | Steering Action | Micro servo motor for precision and control |
+| **VL53LoX ToF** | <img src="other/vl53lox.jpg" width="170"> | 1 | Side Detection | Up to 3 m Range, FoV |
+| **TB6612FNG driver** | <img src="other/motor driver.png" width="170"> | 1 | Motor control | Dual H-Bridge 1.2 A Continuous |
+| **Tower Pro MG90** | <img src="other/micro servo.jpg" width="170"> | 1 | Steering Action | Micro servo motor for precision and control |
 | **1000 RPM N20** | <img src="other/n20 motor.jpg" width="170"> | 1 | Robot Locomotion | Brushed DC with hall effect encoder |
 | **3S lipo 1000mah 30C** | <img src="other/battery.jpg" width="170"> | 1 | Power Source | 1000 mah lipo with protection circuit |
 | **BNO055 imu** | <img src="other/IMU BNO055.jpeg" width="170"> | 1 | motion tracking | 6-axis inertial measurement |
-| **IR Sensor** | <img src="other/ir.png" width="170"> | 2 | line detection | analog ir sensor pair for line detection |
+| **TCS34725** | <img src="other/colour sensor.jpg" width="170"> | 2 | line detection | colour sensor pair for line detection |
+| **SPST switch** | <img src="other/switch.jpg" width="170"> | 1 | power switch | on/off switch for power |
 
 Components were selected based on performance, reliability, power efficiency, and compatibility. Preference was given to lightweight, readily available, and well-supported hardware that ensures seamless integration, accurate operation, and dependable performance in competitive robotics applications.
 
 
-## Individual Component Schematic
+## 🔋 Power Consumption Breakdown
 
-| Component Schematic | Description | Full Documentation |
-|:-------------------:|:-----------:|:------------------:|
-| <img src="images/schematics/stm32h747_camera_controller.jpg" width="280"> | **STM32H747 Camera Controller**<br>Camera interface and peripheral connections. | [View Details](docs/electronics/stm32h747_camera_controller.md) |
-| <img src="images/schematics/nrf52832_sensor_processor.jpg" width="280"> | **nRF52832 Sensor Processor**<br>ToF sensors and sensor fusion integration. | [View Details](docs/electronics/nrf52832_sensor_processor.md) |
-| <img src="images/schematics/drv8833_motor_driver.jpg" width="280"> | **DRV8833 Motor Driver**<br>Dual motor driver with SX1308 voltage boosting. | [View Details](docs/electronics/drv8833_motor_driver.md) |
-| <img src="images/schematics/servo_controller.jpg" width="280"> | **Servo Controller**<br>PWM-based servo control and power routing. | [View Details](docs/electronics/servo_controller.md) |
-| <img src="images/schematics/power_distribution.jpg" width="280"> | **Power Distribution**<br>Battery regulation, protection, and power management. | [View Details](docs/electronics/power_distribution.md) |
-| <img src="images/schematics/encoder_interface.jpg" width="280"> | **Encoder Interface**<br>Quadrature encoder inputs and signal conditioning. | [View Details](docs/electronics/encoder_interface.md) |
+The table below summarizes the typical and peak current consumption and estimated power requirements of the major components used in our robot.
+
+| Component | Voltage | Typical Current | Peak Current | Power Consumption |
+|:---|:---:|---:|---:|---:|
+| **Compute Module 5 (CM5)** | 5V | ~1 A | ~3 A | ~3 W – 7.5 W |
+| **Raspberry Pi Pico 2** | 5V | ~25 mA | ~50 mA | ~125 mW – 250 mW |
+| **AI Camera IMX500** | 5V | ~200 mA | ~500 mA | ~1 W – 2.5 W |
+| **VL53L1X ToF (×3)** | 3.3V | ~20 mA each | ~40 mA each | ~198 mW – 396 mW |
+**VL53LpX ToF (×1)** | 3.3V | ~20 mA each | ~40 mA each | ~198 mW – 396 mW |
+| **BNO055 IMU** | 3.3V | ~12 mA | ~15 mA | ~40 mW – 50 mW |
+| **Color Sensor** | 3.3V | ~20 mA | ~50 mA | ~66 mW – 165 mW |
+| **TB6612FNG Motor Driver** | 5V | ~1 mA | ~3 mA | ~3.3 mW – 10 mW |
+| **MG90 Servo** | 5V | ~100 mA | ~650 mA | ~500 mW – 3.25 W |
+| **N20 Encoder Motor** | 5V | ~150 mA | ~1 A | ~0.9 W – 6 W |
+| **Main Power System** | 11.1V | — | — | Depends on load |
+| **Total System** | Mixed | **~1.2 A** | **~4.4 A** | **~8.5 W – 20 W** |
 
 
 ## E.1 System Overview
 
 The electronics platform is built around a two-controller architecture: a **Raspberry Pi Compute Module 5 (CM5)** handling all high-level autonomy, and a **Raspberry Pi Pico 2** dedicated to real-time, low-level hardware control. This split exists because the two workloads have fundamentally different timing requirements. Vision processing, path planning, and decision logic are computationally heavy but tolerant of small latency variations; motor control, encoder counting, and IMU polling are computationally light but require tight, deterministic timing to avoid jitter in control loops. Running both on a single Linux-based board risks non-deterministic delays in the control loop caused by OS scheduling, so the two responsibilities were separated onto hardware suited to each.
 
-<!-- IMAGE: Full electronics stack assembled and mounted on the robot -->
-![Electronics Stack Overview](images/electronics/electronics-stack-overview.jpg)
+<p align="center">
+  <img src="other/electronics-stack-overview.jpg" width="600">
+</p>
 
 ### Role of the Compute Module 5
 
@@ -128,8 +170,12 @@ The CM5 runs the full autonomy stack:
 - High-level strategy and decision-making (e.g., when to stop, which maneuver to execute)
 - Sending high-level motion commands (target speed, target steering angle) to the Pico
 
-<!-- IMAGE: Raspberry Pi Compute Module 5 mounted on its carrier PCB -->
-![Compute Module 5 Carrier Board](images/electronics/cm5-carrier-board.jpg)
+<p align="center">
+<img src="other/cm5-carrier-board-front.jpg" width="400" height="800">
+</p>
+<p align="center">
+<img src="other/cm5-carrier-board-back.jpg" width="800" height="400">
+</p>
 
 ### Role of the Raspberry Pi Pico 2
 
@@ -144,9 +190,9 @@ The Pico acts as the robot's real-time I/O layer:
 
 Because the Pico runs bare-metal (no OS scheduling overhead), it can service sensor reads and motor control loops at consistent, predictable intervals — something that is difficult to guarantee on a general-purpose Linux system under simultaneous vision-processing load.
 
-<!-- IMAGE: Raspberry Pi Pico mounted on its hand-soldered peripheral PCB -->
-![Pico Peripheral Board](images/electronics/pico-peripheral-board.jpg)
-
+<p align="center">
+<img src="other/pico-peripheral-board.jpg" width="600" height="800">
+<p>
 ## E.2 Why UART Communication
 
 UART was selected as the link between the CM5 and the Pico over alternatives such as I2C, SPI, or USB serial for a few practical reasons:
@@ -178,9 +224,7 @@ Splitting the electronics this way matched the fabrication method to what each b
 | Chemistry | 3S LiPo |
 | Capacity | 1000 mAh |
 
-
-<!-- IMAGE: Battery pack, and/or its mounting location on the chassis -->
-![Battery Pack](images/electronics/battery-pack.jpg)
+[Battery LiPo 1000 Mah](other/battery.jpg)
 
 A 3S (11.1V nominal) LiPo pack was selected to supply sufficient voltage headroom for the motor driver and drive motor without needing a boost converter, while the 1000 mAh capacity keeps the pack physically small and light — important given that battery weight sits near the chassis center and directly affects handling and acceleration. LiPo chemistry was chosen over NiMH or alkaline alternatives for its high discharge current capability, which suits the bursty current demand of a drive motor accelerating and braking repeatedly through a run, and for its favorable energy-to-weight ratio compared to other rechargeable chemistries.
 
@@ -196,8 +240,7 @@ The BNO055 is a 9-axis absolute orientation sensor with onboard sensor fusion, u
 
 Because the BNO055 performs sensor fusion on-chip, the Pico receives a stable orientation estimate directly over I2C rather than needing to fuse raw accelerometer/gyroscope data itself, which keeps the Pico's control loop lightweight.
 
-<!-- IMAGE: BNO055 IMU module mounted on the chassis -->
-![BNO055 IMU](images/electronics/sensor-bno055-imu.jpg)
+[IMU BNO055](other/IMU BNO055.jpeg)
 
 ### Distance Sensors — VL53L0X (×3)
 
@@ -208,8 +251,8 @@ Three VL53L0X Time-of-Flight sensors are used for spatial awareness:
 
 Since all three VL53L0X units share the same default I2C address, each sensor's XSHUT pin is wired to a separate Pico GPIO. On startup, the Pico holds all three sensors in reset, brings them up one at a time, and assigns each a unique I2C address before releasing the next — a standard technique for running multiple identical I2C ToF sensors on one bus.
 
-<!-- IMAGE: Front and side ToF sensor mounting positions on the chassis -->
-![VL53L0X ToF Sensor Placement](others/tof.jpg)
+
+![VL53L0X ToF Sensor Placement](others/vl53lox.jpg)
 
 ### Color Sensor
 
@@ -331,7 +374,7 @@ flowchart TD
     MD --> M[Drive Motor]
     P --> SV[Steering Servo]
 ```
-
+<a name="mechanical-systems"></a>
 # ⚙️ Mechanical Systems
 
 ## M.1 Design Philosophy
