@@ -252,34 +252,36 @@ The ESP32 acts as the robot's real-time control and hardware interface layer:
 - Sending sensor and encoder feedback back to the Raspberry Pi 4
 
 <p align="center">
-<img src="other/esp32-board.jpg" width="250" height="300">
+<img src="other/esp-board.jpg" width="250" height="300">
 <p>
 
 ### System Architecture
 
+```text
 Camera
-   │
-   ▼
+   |
+   v
 Raspberry Pi 4
-   │
-   ├── Vision Processing
-   ├── Path Planning
-   ├── Navigation
-   └── High-Level Decisions
-   │
-   │ Serial Communication
-   ▼
+   |
+   |-- Vision Processing
+   |-- Path Planning
+   |-- Navigation
+   |-- High-Level Decisions
+   |
+   |-- Serial Communication
+   |
+   v
 ESP32
-   │
-   ├── Motor PWM
-   ├── Encoder Feedback
-   ├── Steering Servo
-   ├── IMU
-   └── ToF Distance Sensors
-   │
-   ▼
+   |
+   |-- Motor PWM
+   |-- Encoder Feedback
+   |-- Steering Servo
+   |-- IMU
+   |-- ToF Distance Sensors
+   |
+   v
 Motors & Steering
-
+```
 
 ## E.2 Why UART Communication
 
@@ -330,9 +332,9 @@ Because the BNO055 performs sensor fusion on-chip, the Pico receives a stable or
 
 [IMU BNO055](other/IMU_BNO055.jpeg)
 
-### Distance Sensors — VL53L0X (×3)
+### Distance Sensors — VL53L1X (×3)
 
-Three VL53L0X Time-of-Flight sensors are used for spatial awareness:
+Three VL53L1X Time-of-Flight sensors are used for spatial awareness:
 
 - **Front-facing sensor** — detects walls or obstacles directly ahead, used for stopping distance and forward obstacle avoidance
 - **Two side-facing sensors** — detect the left and right track walls, allowing the robot to maintain a centered position within the lane and detect upcoming turns before they are visible to the camera
@@ -340,7 +342,7 @@ Three VL53L0X Time-of-Flight sensors are used for spatial awareness:
 Since all three VL53L0X units share the same default I2C address, each sensor's XSHUT pin is wired to a separate Pico GPIO. On startup, the Pico holds all three sensors in reset, brings them up one at a time, and assigns each a unique I2C address before releasing the next — a standard technique for running multiple identical I2C ToF sensors on one bus.
 
 
-![VL53L0X ToF Sensor Placement](other/vl53lox.jpg)
+![VL53L1X ToF Sensor Placement](other/vl53l1x.jpg)
 
 ### Color Sensor
 
@@ -490,7 +492,7 @@ This approach kept the structural rigidity of a chassis that was already enginee
 The robot retains the RC car's original four-wheel layout: two front wheels connected through the (retained) steering linkage, and two rear wheels driven through the (retained) differential. This is a conventional car-like Ackermann configuration rather than a skid-steer or omniwheel layout. Keeping the stock wheel and tire set meant the vehicle's rolling behavior — grip, tire scrub characteristics, and turning radius — stayed consistent with a platform that was already tuned by the manufacturer for stable car-like handling, which gave a reliable baseline to build the drivetrain and steering modifications on top of.
 
 <!-- IMAGE: Close-up of wheel/tire assembly (front and rear) -->
-![Wheel Configuration](other/wheel_configuration.jpg)
+![Wheel Configuration](other/wheel-config.jpg)
 
 ## M.4 Differential Gear Drive System
 
@@ -522,7 +524,7 @@ Because the MG90 has different physical dimensions, spline pattern, and horn mou
 Building an Ackermann linkage from scratch means solving for steering arm angle, tie rod length, and kingpin geometry to get the inner and outer wheels tracking a common turn center without scrubbing — a problem that is easy to get subtly wrong. The donor chassis had already solved this problem as a manufactured product, so retaining the stock steering knuckles and swapping only the servo let the project keep correct, proven Ackermann geometry while spending engineering effort on the parts of the robot that actually needed to be original: the electronics, sensing, and control software.
 
 <!-- IMAGE: Top-down diagram of Ackermann geometry showing wheel angles and common turn center -->
-![Ackermann Steering Geometry Diagram](other/ackermann_diagram.jpg)
+![Ackermann Steering Geometry Diagram](other/ackermann-diag.png)
 
 ### Advantages During Autonomous Driving
 
@@ -539,7 +541,7 @@ Heavier components — the battery and the Compute Module 5 PCB — are mounted 
 
 *Assumption: no exact measured weight distribution figures were provided; the description above reflects placement intent based on the modified chassis layout rather than measured values.*
 
-<!-- IMAGE: Top-down annotated photo showing component placement zones on the modified chassis (battery, CM5, servo, sensors) -->
+<!-- IMAGE: Top-down annotated photo showing component placement zones on the modified chassis (battery, RPi4, servo, sensors) -->
 ![Component Placement](other/component_placement.jpg)
 
 ## M.7 Maintainability and Ease of Assembly
@@ -582,7 +584,7 @@ Development vlog showing the robot's construction, electronics integration, test
 ![Working Vlog](video/working.mp4)
 
 Demonstration of the robot navigating the open challenge using its vision, navigation, and control systems
-![Open Challenge](video/open_challenge.mp4)
+![Open Challenge](video/wro'26_astra.mp4)
 
 Demonstration of the robot detecting and navigating around obstacles using its sensors and autonomous control system
 ![Obstacle Challenge](video/obstacle_challenge.mp4)
