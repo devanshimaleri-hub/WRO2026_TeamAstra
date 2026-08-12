@@ -134,8 +134,8 @@ Our electronics are engineered to provide fast sensor feedback, stable power dis
 | **Tower Pro MG90** | <img src="other/micro servo.jpg" width="170"> | 1 | Steering Action | Micro servo motor for precision and control |
 | **1000 RPM N20** | <img src="other/n20 motor.jpg" width="170"> | 1 | Robot Locomotion | Brushed DC with hall effect encoder |
 | **3S lipo 1000mah 30C** | <img src="other/battery.jpg" width="170"> | 1 | Power Source | 1000 mah lipo with protection circuit |
-| **BNO055 imu** | <img src="other/IMU BNO055.jpeg" width="170"> | 1 | motion tracking | 6-axis inertial measurement |
-| **TCS34725** | <img src="other/colour sensor.jpg" width="170"> | 1 | line detection | colour sensor pair for line detection |
+| **BNO055 imu** | <img src="other/IMU_BNO055.jpeg" width="170"> | 1 | motion tracking | 6-axis inertial measurement |
+| **TCS34725** | <img src="other/colour_sensor.jpg" width="170"> | 1 | line detection | colour sensor pair for line detection |
 | **SPST switch** | <img src="other/switch.jpg" width="170"> | 1 | power switch | on/off switch for power |
 
 Components were selected based on performance, reliability, power efficiency, and compatibility. Preference was given to lightweight, readily available, and well-supported hardware that ensures seamless integration, accurate operation, and dependable performance in competitive robotics applications.
