@@ -570,7 +570,55 @@ Because the platform is built on a modified RC car chassis rather than a fully c
 
 # 💻 Software Architecture
 
-Your content here...
+### Obstacle challenge code overview:
+
+```text
+Divides the camera frame into 4 different sections
+                         ↓
+                         ↓
+Detects the position of the coloured object
+                         ↓
+                         ↓
+Adjusts the bot so the inner edge aligns with the line
+                         ↓
+                         ↓
+Sends movement signals from Raspberry Pi to ESP32
+                         ↓
+                         ↓
+Uses hard-coded movements to pass around the object
+                         ↓
+                         ↓
+Returns to line-following after passing the object
+                         ↓
+                         ↓
+Uses camera-based PID control for the next colour detection
+```
+                
+
+### To chose the object which is nearer to bot:
+
+```text
+    # ---------- Choose Closest Object ----------
+    # Largest area = closest object
+
+    target = None
+
+    if red and green:
+
+        target = (
+            red
+            if red["area"] > green["area"]
+            else green
+        )
+
+    elif red:
+
+        target = red
+
+    elif green:
+
+        target = green
+```
 
 # 🎥 Performance Videos
 
