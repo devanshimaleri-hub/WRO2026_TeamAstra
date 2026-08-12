@@ -626,13 +626,13 @@ Demonstration of the OpenCV-based vision system used for real-time camera proces
 ![OpenCV Testing](video/opencv.mp4)
 
 Demonstration of serial communication between the Raspberry Pi 4 and ESP32 for sending control commands and receiving feedback
-![Serial Communication](video/serial.mp4)
+![Serial Communication](video/serial_communication.mp4)
 
 Development vlog showing the robot's construction, electronics integration, testing, and overall development process
-![Working Vlog](video/working.mp4)
+![Working Vlog](video/vlogings.mp4)
 
 Demonstration of the robot navigating the open challenge using its vision, navigation, and control systems
-![Open Challenge](video/wro'26_astra.mp4)
+![Open Challenge](video/wro26_astra.mp4)
 
 Demonstration of the robot detecting and navigating around obstacles using its sensors and autonomous control system
 ![Obstacle Challenge](video/obstacle_challenge.mp4)
