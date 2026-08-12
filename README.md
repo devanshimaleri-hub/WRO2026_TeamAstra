@@ -134,8 +134,8 @@ Our electronics are engineered to provide fast sensor feedback, stable power dis
 | **Tower Pro MG90** | <img src="other/micro servo.jpg" width="170"> | 1 | Steering Action | Micro servo motor for precision and control |
 | **1000 RPM N20** | <img src="other/n20 motor.jpg" width="170"> | 1 | Robot Locomotion | Brushed DC with hall effect encoder |
 | **3S lipo 1000mah 30C** | <img src="other/battery.jpg" width="170"> | 1 | Power Source | 1000 mah lipo with protection circuit |
-| **BNO055 imu** | <img src="other/IMU BNO055.jpeg" width="170"> | 1 | motion tracking | 6-axis inertial measurement |
-| **TCS34725** | <img src="other/colour sensor.jpg" width="170"> | 2 | line detection | colour sensor pair for line detection |
+| **BNO055 imu** | <img src="other/IMU_BNO055.jpeg" width="170"> | 1 | motion tracking | 6-axis inertial measurement |
+| **TCS34725** | <img src="other/colour_sensor.jpg" width="170"> | 1 | line detection | colour sensor pair for line detection |
 | **SPST switch** | <img src="other/switch.jpg" width="170"> | 1 | power switch | on/off switch for power |
 
 Components were selected based on performance, reliability, power efficiency, and compatibility. Preference was given to lightweight, readily available, and well-supported hardware that ensures seamless integration, accurate operation, and dependable performance in competitive robotics applications.
@@ -339,7 +339,7 @@ Three VL53L1X Time-of-Flight sensors are used for spatial awareness:
 - **Front-facing sensor** — detects walls or obstacles directly ahead, used for stopping distance and forward obstacle avoidance
 - **Two side-facing sensors** — detect the left and right track walls, allowing the robot to maintain a centered position within the lane and detect upcoming turns before they are visible to the camera
 
-Since all three VL53L0X units share the same default I2C address, each sensor's XSHUT pin is wired to a separate Pico GPIO. On startup, the Pico holds all three sensors in reset, brings them up one at a time, and assigns each a unique I2C address before releasing the next — a standard technique for running multiple identical I2C ToF sensors on one bus.
+Since all three VL53L1X units share the same default I2C address, each sensor's XSHUT pin is wired to a separate Pico GPIO. On startup, the Pico holds all three sensors in reset, brings them up one at a time, and assigns each a unique I2C address before releasing the next — a standard technique for running multiple identical I2C ToF sensors on one bus.
 
 
 [VL53L1X ToF Sensor Placement](other/vl53l1x.jpg)
@@ -372,6 +372,7 @@ The TB6612FNG dual H-bridge driver was selected over older driver ICs such as th
 | Motor Driver | STBY | GPIO13 |
 | Motor Driver | Encoder A | GPIO34 |
 | Motor Driver | Encoder B | GPIO35 |
+| Servo | Signal | GPIO26 |
 | IMU (BNO055) | SDA | GPIO21 |
 | IMU (BNO055) | SCL | GPIO22 |
 | ToF Sensors | SDA | GPIO33 |
@@ -405,7 +406,7 @@ graph TD
     D -->|UART| C
 
     D --> F[BNO055 IMU]
-    D --> G[VL53L0X ToF x3]
+    D --> G[VL53L1X ToF x3]
     D --> H[Color Sensor]
     D --> E
     E --> I[Drive Motor]
@@ -618,6 +619,47 @@ Uses camera-based PID control for the next colour detection
     elif green:
 
         target = green
+```
+### Open Challenge code overview:
+
+```text
+Detects the first coloured crossing
+              ↓
+              ↓
+Determines the driving direction
+              ↓
+              ↓
+Selects the inner wall to follow
+              ↓
+              ↓
+Uses side ToF sensors to measure wall distance
+              ↓
+              ↓
+Adjusts the bot using wall-following PID
+              ↓
+              ↓
+Uses front ToF to detect upcoming corners
+              ↓
+              ↓
+Uses BNO055 heading to execute controlled 90° turns
+              ↓
+              ↓
+Continues hugging the selected inner wall
+              ↓
+              ↓
+Detects the lap marker using the colour sensor
+              ↓
+              ↓
+Validates lap using encoder distance
+              ↓
+              ↓
+Increments lap counter
+              ↓
+              ↓
+Repeats until 3 laps are completed
+              ↓
+              ↓
+Stops the robot automatically
 ```
 
 ### Messages being send to ESP through UART
