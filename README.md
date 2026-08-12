@@ -300,10 +300,10 @@ Two separate boards carry the electronics, built with two different approaches d
 2. **CM5 carrier board (designed PCB)** — a properly designed and routed board built specifically for the Raspberry Pi Compute Module 5. Because the CM5 requires correctly routed high-density board-to-board connectors, this board could not realistically be hand-soldered; it was laid out with all the necessary routing for the CM5 itself, along with the UART pins and power connections needed to interface with the Pico board.
 
 <!-- IMAGE: Top-down photo of the routed CM5 carrier PCB -->
-![CM5 Carrier PCB](other/cm5-carrier-board-front.jpg)
+[CM5 Carrier PCB](other/cm5-carrier-board-front.jpg)
 
 <!-- IMAGE: Top-down photo of the hand-soldered Pico/ToF perfboard -->
-![Pico Peripheral PCB](other/pico-peripheral-board.jpg)
+[Pico Peripheral PCB](other/pico-peripheral-board.jpg)
 
 Splitting the electronics this way matched the fabrication method to what each board actually required: the CM5's connector demands a properly designed and routed PCB, while the Pico's simpler, lower-density I/O was well suited to a hand-soldered board that could be modified quickly during development. Consolidating the low-level wiring onto the single Pico perfboard rather than routing individual jumper wires across the chassis still reduces the number of loose connections that can vibrate free during a run and makes it easier to trace a fault to a specific header rather than a tangle of point-to-point wires.
 
@@ -342,14 +342,14 @@ Three VL53L1X Time-of-Flight sensors are used for spatial awareness:
 Since all three VL53L0X units share the same default I2C address, each sensor's XSHUT pin is wired to a separate Pico GPIO. On startup, the Pico holds all three sensors in reset, brings them up one at a time, and assigns each a unique I2C address before releasing the next — a standard technique for running multiple identical I2C ToF sensors on one bus.
 
 
-![VL53L1X ToF Sensor Placement](other/vl53l1x.jpg)
+[VL53L1X ToF Sensor Placement](other/vl53l1x.jpg)
 
 ### Color Sensor
 
 A single color sensor is included for surface and marker detection where the challenge requires distinguishing track features (such as colored lane markers or parking zone indicators) that distance sensing alone cannot resolve.
 
 <!-- IMAGE: Color sensor module and its mounting location -->
-![Color Sensor](other/colour_sensor.jpg)
+[Color Sensor](other/colour_sensor.jpg)
 
 ## E.6 Motor Driver — TB6612FNG
 
@@ -360,7 +360,7 @@ The TB6612FNG dual H-bridge driver was selected over older driver ICs such as th
 - **Standby control** — the STBY pin allows the driver to be fully disabled in software, useful for an emergency-stop condition without cutting power to the rest of the electronics.
 
 <!-- IMAGE: TB6612FNG motor driver mounted on the Pico peripheral PCB -->
-![TB6612FNG Motor Driver](other/motor_driver.png)
+[TB6612FNG Motor Driver](other/motor_driver.png)
 
 ## E.7 GPIO Connections
 
@@ -388,7 +388,7 @@ The TB6612FNG dual H-bridge driver was selected over older driver ICs such as th
 | Power | GND | — |
 
 <!-- IMAGE: Full wiring overview showing all connections from the Pico PCB to sensors, motor driver, and servo -->
-![Full Wiring Overview](other/all_wiring.jpg)
+[Full Wiring Overview](other/all_wiring.jpg)
 
 ## E.8 System Architecture
 
@@ -476,7 +476,7 @@ Rather than designing a chassis from scratch, the mechanical platform starts fro
 The chassis was stripped down to its structural core, and every part not required for the competition — the original shell/body, the original electronics, the original steering servo, and the original drive motor — was removed. What remained was treated as a mechanical foundation to be customized: reinforced where needed, cut down where it was oversized, and rebuilt around a purpose-fit drivetrain and electronics package.
 
 <!-- IMAGE: Full chassis overview (isometric / 3D render or photo) -->
-![Chassis Overview](other/chassis-overview.jpg)
+[Chassis Overview](other/chassis-overview.jpg)
 
 ## M.2 Baseplate Construction — Modified RC Car Base
 
@@ -485,14 +485,14 @@ The baseplate is the original RC car chassis tub, modified to fit our own electr
 This approach kept the structural rigidity of a chassis that was already engineered to handle motor torque and steering loads, while freeing up the internal volume needed for our own hardware. Where the stock chassis lacked a mounting point for a new component, standoffs or brackets were added directly onto the existing plastic structure rather than replacing the chassis outright.
 
 <!-- IMAGE: Bare, cut-down baseplate showing removed sections and new mounting points -->
-![Baseplate Layout](other/baseplate-layout.jpg)
+[Baseplate Layout](other/baseplate-layout.jpg)
 
 ## M.3 Wheel Configuration
 
 The robot retains the RC car's original four-wheel layout: two front wheels connected through the (retained) steering linkage, and two rear wheels driven through the (retained) differential. This is a conventional car-like Ackermann configuration rather than a skid-steer or omniwheel layout. Keeping the stock wheel and tire set meant the vehicle's rolling behavior — grip, tire scrub characteristics, and turning radius — stayed consistent with a platform that was already tuned by the manufacturer for stable car-like handling, which gave a reliable baseline to build the drivetrain and steering modifications on top of.
 
 <!-- IMAGE: Close-up of wheel/tire assembly (front and rear) -->
-![Wheel Configuration](other/wheel-config.jpg)
+[Wheel Configuration](other/wheel-config.jpg)
 
 ## M.4 Differential Gear Drive System
 
@@ -506,25 +506,25 @@ Switching to an N20 motor was necessary for two reasons:
 Fitting the N20 motor required machining/printing a custom pinion gear sized to mesh correctly with the stock differential's ring gear, since the N20's shaft diameter and gear pitch do not match the original motor. The motor mount itself was adapted from the stock motor mount position, with material added or removed as needed to align the new pinion correctly with the differential.
 
 <!-- IMAGE: Rear axle assembly showing the stock differential, N20 motor, and custom pinion gear -->
-![Differential Drive System](other/differential-drive.jpeg)
+[Differential Drive System](other/differential-drive.jpeg)
 
 ## M.5 Ackermann Steering Mechanism
 
 The front steering geometry — the steering knuckles, tie rods, and Ackermann arm angles — is the original geometry built into the donor RC car chassis, which already implements correct Ackermann geometry as standard for RC car handling. What was changed is the actuator: the stock steering was being controlled by Dc geared motor and it didnt provide us the modularity to control the steering angles so it was removed and replaced with an **MG90 micro servo**, mounted onto the existing steering linkage mounting point.
 
-![Differential Drive System](other/servo-mount-for-steering.jpg)
+[Differential Drive System](other/servo-mount-for-steering.jpg)
 
 Because the MG90 has different physical dimensions, spline pattern, and horn mounting compared to the original servo, the servo mount area required plastic to be cut away and re-shaped so the MG90 could sit flush and drive the stock steering arm directly. The horn linkage was re-fitted to the stock tie-rod pickup point so that the existing, already-correct Ackermann geometry was preserved — only the actuator driving it changed.
 
 <!-- IMAGE: Front steering assembly close-up (MG90 servo mounted on the modified stock linkage) -->
-![Ackermann Steering Linkage](other/ackermann-steering-linkage.jpg)
+[Ackermann Steering Linkage](other/ackermann-steering-linkage.jpg)
 
 ### Why This Approach Was Chosen
 
 Building an Ackermann linkage from scratch means solving for steering arm angle, tie rod length, and kingpin geometry to get the inner and outer wheels tracking a common turn center without scrubbing — a problem that is easy to get subtly wrong. The donor chassis had already solved this problem as a manufactured product, so retaining the stock steering knuckles and swapping only the servo let the project keep correct, proven Ackermann geometry while spending engineering effort on the parts of the robot that actually needed to be original: the electronics, sensing, and control software.
 
 <!-- IMAGE: Top-down diagram of Ackermann geometry showing wheel angles and common turn center -->
-![Ackermann Steering Geometry Diagram](other/ackermann-diag.png)
+[Ackermann Steering Geometry Diagram](other/ackermann-diag.png)
 
 ### Advantages During Autonomous Driving
 
@@ -542,7 +542,7 @@ Heavier components — the battery and the Compute Module 5 PCB — are mounted 
 *Assumption: no exact measured weight distribution figures were provided; the description above reflects placement intent based on the modified chassis layout rather than measured values.*
 
 <!-- IMAGE: Top-down annotated photo showing component placement zones on the modified chassis (battery, RPi4, servo, sensors) -->
-![Component Placement](other/component_placement.jpg)
+[Component Placement](other/placement.jpg)
 
 ## M.7 Maintainability and Ease of Assembly
 
@@ -638,3 +638,10 @@ Demonstration of the robot detecting and navigating around obstacles using its s
 ![Obstacle Challenge](video/obstacle_challenge.mp4)
 
 
+<div align="center">
+
+<a href="https://www.youtube.com/watch?v=2e-6Fy21VAs">
+  <img src="https://img.shields.io/badge/▶%20WATCH%20PERFORMANCE%20VIDEO-red?style=for-the-badge&logo=youtube&logoColor=white" alt="Watch Performance Video">
+</a>
+
+</div>
