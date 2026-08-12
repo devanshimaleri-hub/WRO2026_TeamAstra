@@ -620,6 +620,32 @@ Uses camera-based PID control for the next colour detection
         target = green
 ```
 
+### Messages being send to ESP through UART
+```text
+        if target["area"] >= consider_object:
+
+            if target["name"] == "RED":
+
+                print("hr")
+                ser.write(b'x')
+
+            else:
+
+                print("hl")
+                ser.write(b'z')
+
+        else:
+
+            if command == 'f':
+                ser.write(b'f')
+            if command == 'l':
+                ser.write(b'l')
+            if command == 'r':
+                ser.write(b'r')
+
+            print(command)
+```
+
 # 🎥 Performance Videos
 
 Demonstration of the OpenCV-based vision system used for real-time camera processing and object/lane detection
